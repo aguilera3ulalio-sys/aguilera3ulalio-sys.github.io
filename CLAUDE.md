@@ -27,11 +27,31 @@ Shared on every page: navigation, contact/social links, a "Download CV" button (
 ## Stack
 
 - Vite + React + TypeScript
-- three.js through React Three Fiber and drei
-- GSAP (ScrollTrigger) for scroll animation, Lenis for smooth scrolling
-- React Router for the pages
+- three.js through React Three Fiber (the basketball is drawn in a shader, no model files)
+- Lenis for smooth scrolling; entrances are CSS transitions triggered by IntersectionObserver
+- React Router for the pages (the host needs an SPA fallback to `index.html`)
 - Plain CSS with custom properties for the design tokens (no UI kit)
+- Fonts: Anton (display) and Space Grotesk (body), self-hosted through fontsource
 - Hosting: to be decided (Vercel or Cloudflare Pages), domain eulalio.com
+
+## Commands
+
+- `npm run dev` - local dev server
+- `npm run build` - type-check and build into `dist/`
+- `npm run preview` - serve the built site
+
+## Code map
+
+- `src/data/content.ts` - every word and fact on the site; edit content here only
+- `src/components/BallScene.tsx` - the 3D basketball (home backdrop and basketball page)
+- `src/components/ui.tsx` - nav, footer, page header, reveal and photo helpers
+- `src/pages/Home.tsx`, `src/pages/Inner.tsx` - the home page and the four inner pages
+- `src/styles.css` - all styling; colours and fonts are tokens at the top
+
+## Design identity
+
+Near-black background, warm bone-white text, basketball orange (`#ff5a1f`) as the only
+accent. Oversized uppercase Anton headings, small spaced-out labels, hairline dividers.
 
 ## 3D guidelines
 
@@ -57,17 +77,14 @@ to be converted, browsers cannot display them.
 
 ## Content status
 
-The real CV content has not been written down yet. Do not invent facts (schools, employers,
-dates, stats, awards). Use clearly marked placeholders until I provide:
+Content comes from my CV and what I have told you. Do not invent facts (schools, employers,
+dates, stats, awards); ask me instead.
 
-- [ ] Short bio / tagline
-- [ ] Education entries
-- [ ] Career entries
-- [ ] Projects list (existing GitHub repos are candidates)
-- [ ] Basketball achievements and tournaments
-- [ ] Contact links (email to publish, LinkedIn, GitHub, Instagram)
-- [ ] CV PDF
-- [ ] Languages for the site (English only, or English + Spanish)
+- [x] Bio, education, career, basketball honours, contact links (site is English only)
+- [ ] More projects: front-end and automation work still to be added
+- [ ] Dates for the Hospital Moscati social service
+- [ ] "Download CV" button: the current CV PDF includes my phone number, decide before publishing it
+- [ ] Hosting and domain setup
 
 ## Conventions
 
