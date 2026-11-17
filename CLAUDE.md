@@ -77,7 +77,7 @@ delete them.
 - `Photos/Baketball/` (basketball)
 
 Folder names are spelled as they were created. The site should not load from here directly:
-high-quality copies (JPEG at quality 90, up to 2200px; I do not want visibly compressed
+high-quality copies (JPEG at quality 90, at most 2200px, never enlarged; I do not want visibly compressed
 photos) go in `public/images/<section>/`. The HEIC files have
 to be converted, browsers cannot display them.
 
