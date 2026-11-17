@@ -1,0 +1,156 @@
+{
+  "basketball/state-team": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ]
+  },
+  "basketball/cup-with-coach": {
+    "width": 768,
+    "height": 1024,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "basketball/early-trophy": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      480,
+      800,
+      1200,
+      1280
+    ]
+  },
+  "basketball/first-court": {
+    "width": 2448,
+    "height": 3264,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2200
+    ]
+  },
+  "basketball/two-trophies": {
+    "width": 3456,
+    "height": 5184,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2200
+    ]
+  },
+  "basketball/champions-banner": {
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
+  "career/at-work": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "career/storecheck": {
+    "width": 1086,
+    "height": 1448,
+    "widths": [
+      480,
+      800,
+      1086
+    ]
+  },
+  "career/service": {
+    "width": 4284,
+    "height": 5712,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2200
+    ]
+  },
+  "career/inteva": {
+    "width": 5712,
+    "height": 4284,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2200
+    ]
+  },
+  "education/friends": {
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
+  "education/competition-hall": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ]
+  },
+  "education/school-days": {
+    "width": 2316,
+    "height": 3088,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2200
+    ]
+  },
+  "education/campus": {
+    "width": 722,
+    "height": 425,
+    "widths": [
+      480,
+      722
+    ]
+  },
+  "education/graduation": {
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      480,
+      800,
+      1024
+    ]
+  },
+  "education/robotics": {
+    "width": 750,
+    "height": 489,
+    "widths": [
+      480,
+      750
+    ]
+  }
+}

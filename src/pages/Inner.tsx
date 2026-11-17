@@ -105,7 +105,7 @@ export function Education() {
 
       <section className="gallery gallery--three">
         {educationGallery.map((ph) => (
-          <Photo key={ph.src} {...ph} />
+          <Photo key={ph.src} {...ph} sizes="(max-width: 820px) 100vw, 33vw" />
         ))}
       </section>
 
@@ -217,7 +217,14 @@ export function Basketball() {
 
       <section className="gallery gallery--court">
         {basketballGallery.map((ph) => (
-          <Photo key={ph.src} src={ph.src} alt={ph.alt} className={ph.wide ? 'photo--wide' : ''} />
+          <Photo
+            key={ph.src}
+            src={ph.src}
+            alt={ph.alt}
+            className={ph.wide ? 'photo--wide' : ''}
+            // Wide team shots take two of the three columns, the rest take one.
+            sizes={ph.wide ? '(max-width: 820px) 100vw, 66vw' : '(max-width: 820px) 50vw, 33vw'}
+          />
         ))}
       </section>
 

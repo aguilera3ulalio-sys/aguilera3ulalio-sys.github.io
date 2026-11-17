@@ -79,9 +79,12 @@ delete them.
 - `Photos/Baketball/` (basketball)
 
 Folder names are spelled as they were created. The site should not load from here directly:
-high-quality copies (JPEG at quality 90, at most 2200px, never enlarged; I do not want visibly compressed
-photos) go in `public/images/<section>/`. The HEIC files have
-to be converted, browsers cannot display them.
+`python3 scripts/build-images.py` turns them into WebP copies at several widths in
+`public/images/<section>/` and writes `src/data/images.json`. The `Picture` component in
+`ui.tsx` uses that to give each screen the smallest file that still looks sharp (srcset).
+Quality stays high (WebP 86, up to 2200px, never enlarged); I do not want visibly compressed
+photos, and I do not want them to lag either. To add a photo: put the original in `Photos/`,
+add a line to the `PHOTOS` map in the script, run it, and reference the name in `content.ts`.
 
 ## Content status
 

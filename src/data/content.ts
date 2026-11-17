@@ -1,10 +1,10 @@
 // All the words and facts on the site live in this one file.
 // When my CV changes I only want to touch this file, never the page components.
 
-// Every photo path starts from the site's base address. Today that is just "/",
-// but going through this helper means the site keeps working if I ever host it
-// in a sub-folder.
-const img = (path: string) => `${import.meta.env.BASE_URL}images/${path}`
+// Photos are referred to by name, like 'career/inteva'. The Picture component
+// turns that name into the right file for each screen size. This helper only
+// exists so a typo in a photo name is easy to spot in one place.
+const img = (path: string) => path.replace(/\.jpg$/, '')
 
 export const profile = {
   firstName: 'Eulalio',
@@ -37,28 +37,28 @@ export const chapters = [
     to: '/projects',
     title: 'Projects',
     line: 'AI products, full-stack apps and automation.',
-    image: img('career/at-work-sm.jpg'),
+    image: img('career/at-work.jpg'),
     alt: 'Working on a laptop at a wooden desk',
   },
   {
     to: '/career',
     title: 'Career path',
     line: 'Inteva Products, Storecheck and Hospital Moscati.',
-    image: img('career/inteva-sm.jpg'),
+    image: img('career/inteva.jpg'),
     alt: 'Standing next to the Inteva Querétaro Technical Center sign',
   },
   {
     to: '/education',
     title: 'Education',
     line: 'Software Engineering at Universidad Autónoma de Querétaro.',
-    image: img('education/campus-sm.jpg'),
+    image: img('education/campus.jpg'),
     alt: 'University campus buildings under a cloudy sky',
   },
   {
     to: '/basketball',
     title: 'Off the clock',
     line: 'Basketball: national titles and state teams.',
-    image: img('basketball/champions-banner-sm.jpg'),
+    image: img('basketball/champions-banner.jpg'),
     alt: 'Team photo behind a champions banner after a tournament win',
   },
 ]

@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Reveal } from '../components/ui'
+import { Picture, Reveal } from '../components/ui'
 import { career, chapters, marquee, profile, projects, skills, stats } from '../data/content'
 
 // three.js is the heaviest thing on the site, so I load it after the text is
@@ -173,7 +173,7 @@ export default function Home() {
                   <span className="chapter__line">{c.line}</span>
                 </span>
                 <span className="chapter__img">
-                  <img src={c.image} alt={c.alt} decoding="async" />
+                  <Picture name={c.image} alt={c.alt} sizes="(max-width: 820px) 100px, 340px" />
                 </span>
               </Link>
             </Reveal>
