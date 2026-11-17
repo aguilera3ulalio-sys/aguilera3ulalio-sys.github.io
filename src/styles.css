@@ -261,8 +261,8 @@ button {
   clip-path: inset(100% 0 0 0);
   transform: scale(1.06);
   transition:
-    clip-path 0.45s var(--ease),
-    transform 0.7s var(--ease);
+    clip-path 0.3s var(--ease),
+    transform 0.5s var(--ease);
 }
 
 .photo.is-in img {

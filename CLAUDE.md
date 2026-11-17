@@ -83,7 +83,8 @@ Folder names are spelled as they were created. The site should not load from her
 `public/images/<section>/` and writes `src/data/images.json`. The `Picture` component in
 `ui.tsx` uses that to give each screen the smallest file that still looks sharp (srcset).
 Quality stays high (WebP 86, up to 2200px, never enlarged); I do not want visibly compressed
-photos, and I do not want them to lag either. To add a photo: put the original in `Photos/`,
+photos, and I do not want them to lag either: photos load eagerly when the page opens (not
+lazily on scroll) and the wipe-in animation is kept short. To add a photo: put the original in `Photos/`,
 add a line to the `PHOTOS` map in the script, run it, and reference the name in `content.ts`.
 
 ## Content status

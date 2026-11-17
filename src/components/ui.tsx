@@ -33,7 +33,7 @@ export function Reveal({
       },
       // The bottom margin makes things start appearing just before they scroll
       // into view, so nothing is still blank by the time I am looking at it.
-      { threshold: 0, rootMargin: '0px 0px 12% 0px' },
+      { threshold: 0, rootMargin: '0px 0px 20% 0px' },
     )
     io.observe(el)
     return () => io.disconnect()
@@ -70,7 +70,10 @@ export function Picture({ name, alt, sizes }: { name: string; alt: string; sizes
       width={info.width}
       height={info.height}
       alt={alt}
-      loading="lazy"
+      // I load photos as soon as the page opens instead of waiting until they are
+      // scrolled to. Each page only has a handful and the files are small now, so
+      // by the time I scroll down they are already there and appear instantly.
+      loading="eager"
       decoding="async"
     />
   )
