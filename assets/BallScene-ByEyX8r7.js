@@ -1,4 +1,4 @@
-import{n as e,r as t,s as n,t as r}from"./react-three-fiber.esm-thLAIUlj.js";import{o as i,r as a,t as o}from"./index-DGTldPZo.js";var s=i(a(),1),c=o(),l=`
+import{n as e,r as t,s as n,t as r}from"./react-three-fiber.esm-BNDHDNM-.js";import{o as i,r as a,t as o}from"./index-CjVpQwUB.js";var s=i(a(),1),c=o(),l=`
   varying vec3 vPos;
   varying vec3 vNormal;
   varying vec3 vView;
