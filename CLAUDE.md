@@ -77,7 +77,8 @@ delete them.
 - `Photos/Baketball/` (basketball)
 
 Folder names are spelled as they were created. The site should not load from here directly:
-optimised copies (WebP/AVIF, resized) go in `public/images/<section>/`. The HEIC files have
+high-quality copies (JPEG at quality 90, up to 2200px; I do not want visibly compressed
+photos) go in `public/images/<section>/`. The HEIC files have
 to be converted, browsers cannot display them.
 
 ## Content status
@@ -87,6 +88,7 @@ dates, stats, awards); ask me instead.
 
 - [x] Bio, education, career, basketball honours, contact links (site is English only)
 - [ ] More projects: front-end and automation work still to be added
+- [ ] Dates for the Hospital Moscati social service
 - [ ] "Download CV" button: the current CV PDF includes my phone number, decide before publishing it
 - [ ] Hosting and domain setup
 

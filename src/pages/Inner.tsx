@@ -120,7 +120,7 @@ export function Career() {
       <PageHero
         index="02"
         title="Career path"
-        lead="From AI training data at Storecheck to building internal software as an engineering intern at Inteva Products."
+        lead="Three stops so far: hospital service, AI training data, and now building internal software as an engineering intern."
       />
 
       {career.map((c) => (

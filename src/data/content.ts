@@ -38,7 +38,7 @@ export const chapters = [
   {
     to: '/career',
     title: 'Career path',
-    line: 'Inteva Products and Storecheck.',
+    line: 'Inteva Products, Storecheck and Hospital Moscati.',
     image: '/images/career/inteva-sm.jpg',
     alt: 'Standing next to the Inteva Querétaro Technical Center sign',
   },
@@ -151,6 +151,17 @@ export const career = [
       { src: '/images/career/at-work.jpg', alt: 'Working on a laptop at a wooden desk in the office' },
     ],
   },
+  {
+    company: 'Hospital Moscati',
+    role: 'Social service',
+    period: 'University social service',
+    place: 'Querétaro, Mexico',
+    points: [
+      'Supported the emergency department as a helper.',
+      'Worked in client service, attending to patients and visitors.',
+    ],
+    photos: [{ src: '/images/career/service.jpg', alt: 'Portrait in a navy uniform polo shirt' }],
+  },
 ]
 
 export const skills = [
@@ -178,14 +189,6 @@ export const projects = [
       'A custom gesture classifier trained on data I collected by hand, running real-time inference on an Arduino. The full ML pipeline from data collection to embedded hardware.',
     stack: ['Python', 'OpenCV', 'scikit-learn', 'Arduino'],
     href: null,
-  },
-  {
-    name: 'Hospital Moscati SmartMenu',
-    status: 'Shipped',
-    summary:
-      'Web-based QR menu system for Hospital Moscati with bilingual support, multiple restaurants and an admin dashboard.',
-    stack: ['Web', 'QR', 'Admin dashboard'],
-    href: 'https://github.com/aguilera3ulalio-sys/hospital-moscati-smartmenu',
   },
 ]
 
