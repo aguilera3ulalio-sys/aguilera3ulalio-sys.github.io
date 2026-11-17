@@ -173,7 +173,7 @@ export default function Home() {
                   <span className="chapter__line">{c.line}</span>
                 </span>
                 <span className="chapter__img">
-                  <img src={c.image} alt={c.alt} loading="lazy" decoding="async" />
+                  <img src={c.image} alt={c.alt} decoding="async" />
                 </span>
               </Link>
             </Reveal>

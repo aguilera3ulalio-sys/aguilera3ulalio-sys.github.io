@@ -87,7 +87,6 @@ dates, stats, awards); ask me instead.
 
 - [x] Bio, education, career, basketball honours, contact links (site is English only)
 - [ ] More projects: front-end and automation work still to be added
-- [ ] Dates for the Hospital Moscati social service
 - [ ] "Download CV" button: the current CV PDF includes my phone number, decide before publishing it
 - [ ] Hosting and domain setup
 

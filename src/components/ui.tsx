@@ -30,7 +30,9 @@ export function Reveal({
           io.disconnect() // I only want the entrance once, not every time.
         }
       },
-      { threshold: 0.12 },
+      // The bottom margin makes things start appearing just before they scroll
+      // into view, so nothing is still blank by the time I am looking at it.
+      { threshold: 0, rootMargin: '0px 0px 12% 0px' },
     )
     io.observe(el)
     return () => io.disconnect()

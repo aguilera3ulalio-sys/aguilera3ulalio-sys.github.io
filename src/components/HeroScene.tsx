@@ -236,6 +236,9 @@ export default function HeroScene() {
   return (
     <Canvas
       className="hero-canvas"
+      // The canvas is decoration only. Without this it swallows hover and clicks
+      // meant for the content underneath it.
+      style={{ pointerEvents: 'none' }}
       frameloop={active ? 'always' : 'never'}
       camera={{ position: [0, 0, 8], fov: 35 }}
       // Capping the pixel ratio keeps phones and retina laptops from overheating.

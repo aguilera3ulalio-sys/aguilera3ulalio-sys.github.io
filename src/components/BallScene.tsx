@@ -169,6 +169,7 @@ export default function BallScene() {
   return (
     <Canvas
       className="ball-canvas"
+      style={{ pointerEvents: 'none' }}
       camera={{ position: [0, 0, 8], fov: 35 }}
       // Capping the pixel ratio keeps phones and retina laptops from overheating.
       dpr={[1, 1.5]}

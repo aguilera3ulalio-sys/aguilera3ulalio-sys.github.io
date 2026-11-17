@@ -32,28 +32,28 @@ export const chapters = [
     to: '/projects',
     title: 'Projects',
     line: 'AI products, full-stack apps and automation.',
-    image: '/images/career/at-work.jpg',
+    image: '/images/career/at-work-sm.jpg',
     alt: 'Working on a laptop at a wooden desk',
   },
   {
     to: '/career',
     title: 'Career path',
-    line: 'Inteva Products, Storecheck and Hospital Moscati.',
-    image: '/images/career/inteva.jpg',
+    line: 'Inteva Products and Storecheck.',
+    image: '/images/career/inteva-sm.jpg',
     alt: 'Standing next to the Inteva Querétaro Technical Center sign',
   },
   {
     to: '/education',
     title: 'Education',
     line: 'Software Engineering at Universidad Autónoma de Querétaro.',
-    image: '/images/education/campus.jpg',
+    image: '/images/education/campus-sm.jpg',
     alt: 'University campus buildings under a cloudy sky',
   },
   {
     to: '/basketball',
     title: 'Off the clock',
     line: 'Basketball: national titles and state teams.',
-    image: '/images/basketball/champions-banner.jpg',
+    image: '/images/basketball/champions-banner-sm.jpg',
     alt: 'Team photo behind a champions banner after a tournament win',
   },
 ]
@@ -151,17 +151,6 @@ export const career = [
       { src: '/images/career/at-work.jpg', alt: 'Working on a laptop at a wooden desk in the office' },
     ],
   },
-  {
-    company: 'Hospital Moscati',
-    role: 'Social service',
-    period: 'University social service',
-    place: 'Querétaro, Mexico',
-    points: [
-      'Supported the emergency department as a helper.',
-      'Worked in client service, attending to patients and visitors.',
-    ],
-    photos: [{ src: '/images/career/service.jpg', alt: 'Portrait in a navy uniform polo shirt' }],
-  },
 ]
 
 export const skills = [
@@ -181,14 +170,6 @@ export const projects = [
       'An AI home architect. Describe your dream home and get floor plans, a 3D construction, cost estimates and preliminary drawings.',
     stack: ['AI', '3D', 'Full-stack'],
     href: 'https://github.com/aguilera3ulalio-sys/architect-inspire',
-  },
-  {
-    name: 'AI Recipe Generator',
-    status: 'Shipped',
-    summary:
-      'Full-stack app with a FastAPI backend that uses the Gemini API to generate personalised recipes. Deployed serverlessly on AWS Lambda with CI/CD through GitHub Actions, with authentication and MongoDB storage.',
-    stack: ['Python', 'FastAPI', 'Gemini API', 'React', 'MongoDB', 'AWS Lambda'],
-    href: null,
   },
   {
     name: 'Sign Language to Text Translator',
