@@ -252,6 +252,9 @@ button {
 .photo {
   overflow: hidden;
   border-radius: 6px;
+  /* A faint frame shows while a big photo is still downloading, so the space
+     never looks empty. */
+  background: var(--surface);
 }
 
 .photo img {
@@ -1082,6 +1085,11 @@ button {
     font-family: var(--body);
     font-size: 0.8rem;
     color: var(--accent);
+  }
+
+  /* On phones my name can run almost edge to edge. */
+  .hero__name {
+    font-size: 26.5vw;
   }
 
   .hero__name-outline {
