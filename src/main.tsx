@@ -5,15 +5,17 @@ import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import '@fontsource/anton'
 import '@fontsource-variable/space-grotesk'
+import '@fontsource-variable/jetbrains-mono'
 import './styles.css'
 import { Footer, Nav } from './components/ui'
 import Home from './pages/Home'
 import { Basketball, Career, Education, Projects } from './pages/Inner'
 
-// One Lenis instance for the whole site gives me the smooth, weighty scrolling.
-// I skip it when the visitor has asked their system for reduced motion.
+// One Lenis instance for the whole site smooths the scrolling. I keep it quick
+// (high lerp, a bit more distance per wheel tick) so it never feels sluggish,
+// and I skip it when the visitor has asked their system for reduced motion.
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const lenis = prefersReducedMotion ? null : new Lenis({ autoRaf: true })
+const lenis = prefersReducedMotion ? null : new Lenis({ autoRaf: true, lerp: 0.22, wheelMultiplier: 1.3 })
 
 function Layout() {
   const { pathname } = useLocation()

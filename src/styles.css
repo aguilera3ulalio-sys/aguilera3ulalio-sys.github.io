@@ -10,10 +10,11 @@
   --line: rgba(242, 239, 232, 0.14);
   --text: #f2efe8; /* warm bone white */
   --muted: #9a968d;
-  --accent: #ff5a1f; /* basketball orange, my signature colour */
+  --accent: #ff5a1f; /* my signature orange */
 
   --display: 'Anton', 'Impact', sans-serif;
   --body: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace; /* labels and code */
 
   --gutter: clamp(16px, 4vw, 56px);
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -96,8 +97,9 @@ button {
 
 /* Small uppercase label I use above almost every heading. */
 .eyebrow {
-  font-size: 0.74rem;
-  letter-spacing: 0.18em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -218,7 +220,7 @@ button {
 
 .rise > span {
   display: block;
-  animation: rise 1.1s var(--ease) both;
+  animation: rise 0.85s var(--ease) both;
 }
 
 .rise--late > span {
@@ -234,10 +236,10 @@ button {
 /* ---- Reveal on scroll ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(18px);
   transition:
-    opacity 0.9s var(--ease),
-    transform 0.9s var(--ease);
+    opacity 0.55s var(--ease),
+    transform 0.55s var(--ease);
 }
 
 .reveal.is-in {
@@ -256,8 +258,8 @@ button {
   clip-path: inset(100% 0 0 0);
   transform: scale(1.12);
   transition:
-    clip-path 1.1s var(--ease),
-    transform 1.6s var(--ease);
+    clip-path 0.75s var(--ease),
+    transform 1.1s var(--ease);
 }
 
 .photo.is-in img {
@@ -266,7 +268,7 @@ button {
 }
 
 /* ---- 3D canvas ---- */
-.ball-canvas--home {
+.hero-canvas {
   position: fixed !important;
   inset: 0;
   z-index: 0;
@@ -300,6 +302,24 @@ button {
   text-align: right;
   color: transparent;
   -webkit-text-stroke: 2px var(--text);
+}
+
+/* Blinking block after the terminal-style line. */
+.hero__caret,
+.code__cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 0.4em;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero__foot {
@@ -346,7 +366,7 @@ button {
 }
 
 .intro {
-  min-height: 100svh;
+  min-height: 78svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -426,6 +446,124 @@ button {
   to {
     transform: translateX(-50%);
   }
+}
+
+/* Profile-as-code next to my selected work. Solid background covers the canvas. */
+.work {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  padding: clamp(64px, 9vw, 130px) var(--gutter) 0;
+  background: var(--bg);
+}
+
+/* The code window. */
+.code {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.code__bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.code__dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.code__dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.code__dots i:first-child {
+  background: var(--accent);
+}
+
+.code__body {
+  margin: 0;
+  padding: clamp(16px, 2.4vw, 28px);
+  font-family: var(--mono);
+  font-size: clamp(0.78rem, 1.05vw, 0.95rem);
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.code__body code {
+  font-family: inherit;
+}
+
+/* Syntax colours. */
+.tok-key {
+  color: var(--accent);
+}
+
+.tok-name {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.tok-str {
+  color: #e9c9a6;
+}
+
+.work__list {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.work__item {
+  display: grid;
+  gap: 6px;
+  padding: clamp(18px, 2.2vw, 28px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.work__status,
+.work__stack {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.work__status {
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.work__name {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3.6vw, 3.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    color 0.25s,
+    transform 0.4s var(--ease);
+}
+
+.work__item:hover .work__name {
+  color: var(--accent);
+  transform: translateX(10px);
+}
+
+.work__right .project__link {
+  display: inline-block;
+  margin-top: 28px;
 }
 
 /* The four big chapter links. Solid background so it covers the canvas. */
@@ -650,6 +788,7 @@ button {
 }
 
 .tags li {
+  font-family: var(--mono);
   padding: 6px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -712,8 +851,9 @@ button {
 .project__top {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -948,6 +1088,10 @@ button {
   }
 
   .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .work {
     grid-template-columns: 1fr;
   }
 

@@ -77,9 +77,9 @@ export function Education() {
   return (
     <>
       <PageHero
-        index="01"
+        index="03"
         title="Education"
-        lead="From a basketball scholarship in high school to a software engineering degree with a 9.02 average."
+        lead="A software engineering degree with a 9.02 average, built on robotics competitions and an IELTS certification in high school."
       />
 
       {education.map((e) => (
@@ -153,7 +153,7 @@ export function Projects() {
   return (
     <>
       <PageHero
-        index="03"
+        index="01"
         title="Projects"
         lead="AI products, full-stack apps and automation. More front-end and automation work is on its way here."
       />
@@ -197,7 +197,7 @@ export function Basketball() {
         {/* The same ball as the home page, here as a normal block next to the title. */}
         <div className="page-hero__ball">
           <Suspense fallback={null}>
-            <BallScene mode="inline" />
+            <BallScene />
           </Suspense>
         </div>
       </PageHero>

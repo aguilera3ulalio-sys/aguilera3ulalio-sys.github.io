@@ -27,11 +27,11 @@ Shared on every page: navigation, contact/social links, a "Download CV" button (
 ## Stack
 
 - Vite + React + TypeScript
-- three.js through React Three Fiber (the basketball is drawn in a shader, no model files)
-- Lenis for smooth scrolling; entrances are CSS transitions triggered by IntersectionObserver
+- three.js through React Three Fiber; both scenes are generated in code, no model files
+- Lenis for smooth scrolling, tuned to stay quick (`lerp: 0.22`); entrances are CSS transitions triggered by IntersectionObserver
 - React Router for the pages (the host needs an SPA fallback to `index.html`)
 - Plain CSS with custom properties for the design tokens (no UI kit)
-- Fonts: Anton (display) and Space Grotesk (body), self-hosted through fontsource
+- Fonts: Anton (display), Space Grotesk (body), JetBrains Mono (labels and code), self-hosted through fontsource
 - Hosting: to be decided (Vercel or Cloudflare Pages), domain eulalio.com
 
 ## Commands
@@ -43,20 +43,25 @@ Shared on every page: navigation, contact/social links, a "Download CV" button (
 ## Code map
 
 - `src/data/content.ts` - every word and fact on the site; edit content here only
-- `src/components/BallScene.tsx` - the 3D basketball (home backdrop and basketball page)
+- `src/components/HeroScene.tsx` - the home backdrop: a 3D network of nodes with data packets
+- `src/components/BallScene.tsx` - the 3D basketball, used only on the basketball page
 - `src/components/ui.tsx` - nav, footer, page header, reveal and photo helpers
 - `src/pages/Home.tsx`, `src/pages/Inner.tsx` - the home page and the four inner pages
 - `src/styles.css` - all styling; colours and fonts are tokens at the top
 
 ## Design identity
 
-Near-black background, warm bone-white text, basketball orange (`#ff5a1f`) as the only
-accent. Oversized uppercase Anton headings, small spaced-out labels, hairline dividers.
+Software first. The site should read as an engineer's site: the home hero is a data
+network, labels are monospace, and my profile is shown as a code file. Basketball is the
+"off the clock" chapter and stays on its own page, it should not lead the home page.
+
+Near-black background, warm bone-white text, orange (`#ff5a1f`) as the only accent.
+Oversized uppercase Anton headings, small monospace labels, hairline dividers.
+Keep scrolling and entrance animations quick; I found the first version too slow.
 
 ## 3D guidelines
 
-- One signature scene in the hero, plus lighter 3D accents on inner pages
-  (the basketball page is the natural place for a 3D ball).
+- One signature scene in the home hero (the network), plus the 3D ball on the basketball page.
 - Keep it fast: lazy-load the canvas, cap the device pixel ratio, pause rendering when
   the canvas is off screen.
 - Respect `prefers-reduced-motion` and give low-power / mobile devices a static fallback.

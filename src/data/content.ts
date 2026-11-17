@@ -9,7 +9,7 @@ export const profile = {
   tagline: 'Software engineer building automation tools and AI-powered products.',
   // The longer statement I show right under the hero on the home page.
   statement:
-    'I build software that removes busywork: internal tools, automation flows, AI data pipelines and full-stack apps. Off the clock, you will find me on a basketball court.',
+    'I build software that removes busywork: internal tools, automation flows, AI data pipelines and full-stack apps that real teams use every day.',
   emails: ['aguilera3ulalio@icloud.com', 'aguilera3ulalio@gmail.com'],
   socials: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/eulalio-aguilera-286113332' },
@@ -20,19 +20,20 @@ export const profile = {
 
 // The three quick facts on the home page. I keep these to things I can back up.
 export const stats = [
+  { value: '2', label: 'Industry roles: Inteva Products and Storecheck' },
   { value: '9.02', label: 'Grade average out of 10 at UAQ' },
   { value: '2026', label: 'B.S. in Software Engineering, graduating' },
-  { value: 'B2', label: 'IELTS certified English' },
 ]
 
-// The four chapters of the site. The home page and the nav both read from here.
+// The four chapters of the site, software first. The home page, the nav and the
+// "next" links all read their order from here.
 export const chapters = [
   {
-    to: '/education',
-    title: 'Education',
-    line: 'Prepa Anáhuac to Universidad Autónoma de Querétaro.',
-    image: '/images/education/graduation.jpg',
-    alt: 'Graduation day in caps and gowns with classmates',
+    to: '/projects',
+    title: 'Projects',
+    line: 'AI products, full-stack apps and automation.',
+    image: '/images/career/at-work.jpg',
+    alt: 'Working on a laptop at a wooden desk',
   },
   {
     to: '/career',
@@ -42,16 +43,16 @@ export const chapters = [
     alt: 'Standing next to the Inteva Querétaro Technical Center sign',
   },
   {
-    to: '/projects',
-    title: 'Projects',
-    line: 'AI, full-stack and automation work.',
-    image: '/images/career/at-work.jpg',
-    alt: 'Working on a laptop at a wooden desk',
+    to: '/education',
+    title: 'Education',
+    line: 'Software Engineering at Universidad Autónoma de Querétaro.',
+    image: '/images/education/campus.jpg',
+    alt: 'University campus buildings under a cloudy sky',
   },
   {
     to: '/basketball',
-    title: 'Basketball',
-    line: 'National titles, state teams and a lifelong scholarship.',
+    title: 'Off the clock',
+    line: 'Basketball: national titles and state teams.',
     image: '/images/basketball/champions-banner.jpg',
     alt: 'Team photo behind a champions banner after a tournament win',
   },

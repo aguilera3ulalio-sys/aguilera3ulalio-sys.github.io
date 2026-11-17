@@ -1,14 +1,10 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
-// My signature 3D piece: a basketball drawn entirely in a shader (no textures or
-// model files to download), with thin orbit rings and a dust field around it.
-// It is used in two ways:
-//   mode="home"   - a full-screen fixed backdrop that reacts to scrolling
-//   mode="inline" - a normal block that just spins and follows the pointer
-
-type Mode = 'home' | 'inline'
+// The 3D basketball for my basketball page. It is drawn entirely in a shader
+// (no textures or model files to download), with thin orbit rings and a dust
+// field around it. It spins on its own and leans towards the pointer.
 
 const vertexShader = /* glsl */ `
   varying vec3 vPos;
@@ -70,33 +66,23 @@ const fragmentShader = /* glsl */ `
   }
 `
 
-// Small helpers I use for the scroll choreography.
-const clamp01 = (v: number) => Math.min(1, Math.max(0, v))
-const smooth = (a: number, b: number, v: number) => {
-  const t = clamp01((v - a) / (b - a))
-  return t * t * (3 - 2 * t)
-}
-
-function Ball({ mode, reducedMotion }: { mode: Mode; reducedMotion: boolean }) {
+function Ball({ reducedMotion }: { reducedMotion: boolean }) {
   const group = useRef<THREE.Group>(null!)
   const ball = useRef<THREE.Mesh>(null!)
   const rings = useRef<THREE.Group>(null!)
   const dust = useRef<THREE.Points>(null!)
-  const { viewport, gl } = useThree()
+  const { viewport } = useThree()
 
-  // Pointer position in -1..1. I listen on the window because on the home page
-  // the canvas sits behind the content and never receives pointer events itself.
+  // Pointer position in -1..1. I listen on the window because the canvas sits
+  // behind the page title and never receives pointer events itself.
   const pointer = useRef({ x: 0, y: 0 })
-  useMemo(() => {
-    if (typeof window === 'undefined') return
-    window.addEventListener(
-      'pointermove',
-      (e) => {
-        pointer.current.x = (e.clientX / window.innerWidth) * 2 - 1
-        pointer.current.y = (e.clientY / window.innerHeight) * 2 - 1
-      },
-      { passive: true },
-    )
+  useEffect(() => {
+    const onMove = (e: PointerEvent) => {
+      pointer.current.x = (e.clientX / window.innerWidth) * 2 - 1
+      pointer.current.y = (e.clientY / window.innerHeight) * 2 - 1
+    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => window.removeEventListener('pointermove', onMove)
   }, [])
 
   const uniforms = useMemo(
@@ -125,49 +111,24 @@ function Ball({ mode, reducedMotion }: { mode: Mode; reducedMotion: boolean }) {
 
   useFrame((state, delta) => {
     const t = reducedMotion ? 0 : state.clock.elapsedTime
-    const narrow = viewport.width < viewport.height // phone-shaped screens
 
-    // The ball is sized off the smaller side of the screen so it always fits.
-    const base = Math.min(viewport.width, viewport.height) * (mode === 'home' ? 0.27 : 0.34)
-
-    let targetX = 0
-    let targetY = 0
-    let scale = base
-    let spin = t * 0.25
-    let opacity = 1
-
-    if (mode === 'home') {
-      // How many screens I have scrolled.
-      const p = window.scrollY / window.innerHeight
-      const slide = smooth(0.05, 1, p)
-      if (narrow) {
-        // On phones there is no room beside the text, so the ball drifts up and fades.
-        targetY = slide * viewport.height * 0.2
-        opacity = 1 - smooth(0.35, 0.95, p)
-      } else {
-        // On wide screens it slides to the right to make room for the statement.
-        targetX = slide * viewport.width * 0.27
-        opacity = 1 - smooth(1.45, 2.1, p)
-      }
-      scale = base * (1 - 0.18 * slide)
-      spin += window.scrollY * 0.0035
-      gl.domElement.style.opacity = String(opacity)
-    }
+    // The ball is sized off the smaller side of its box so it always fits.
+    const scale = Math.min(viewport.width, viewport.height) * 0.34
 
     // Ease everything towards its target so the motion feels weighty.
     const k = 1 - Math.exp(-delta * 5)
     const g = group.current
-    g.position.x += (targetX + pointer.current.x * 0.12 - g.position.x) * k
-    g.position.y += (targetY - pointer.current.y * 0.08 - g.position.y) * k
+    g.position.x += (pointer.current.x * 0.12 - g.position.x) * k
+    g.position.y += (-pointer.current.y * 0.08 - g.position.y) * k
     g.scale.setScalar(g.scale.x + (scale - g.scale.x) * k)
     g.rotation.x += (pointer.current.y * 0.25 - g.rotation.x) * k
     g.rotation.z += (-pointer.current.x * 0.12 - g.rotation.z) * k
 
-    ball.current.rotation.y = spin
+    ball.current.rotation.y = t * 0.25
     ball.current.rotation.x = 0.35
     rings.current.rotation.z = t * 0.08
     rings.current.rotation.y = t * 0.05
-    dust.current.rotation.y = t * 0.015 + (mode === 'home' ? window.scrollY * 0.0004 : 0)
+    dust.current.rotation.y = t * 0.015
   })
 
   return (
@@ -201,21 +162,20 @@ function Ball({ mode, reducedMotion }: { mode: Mode; reducedMotion: boolean }) {
   )
 }
 
-export default function BallScene({ mode }: { mode: Mode }) {
+export default function BallScene() {
   // If someone asks their system for less motion, I render a still ball.
-  const reducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
     <Canvas
-      className={mode === 'home' ? 'ball-canvas ball-canvas--home' : 'ball-canvas'}
+      className="ball-canvas"
       camera={{ position: [0, 0, 8], fov: 35 }}
       // Capping the pixel ratio keeps phones and retina laptops from overheating.
-      dpr={[1, 1.75]}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       aria-hidden="true"
     >
-      <Ball mode={mode} reducedMotion={reducedMotion} />
+      <Ball reducedMotion={reducedMotion} />
     </Canvas>
   )
 }
