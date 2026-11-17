@@ -1,6 +1,10 @@
 // All the words and facts on the site live in this one file.
 // When my CV changes I only want to touch this file, never the page components.
 
+// The site is served from a sub-folder on GitHub Pages, so every photo path has
+// to start from the site's base address instead of from the domain root.
+const img = (path: string) => `${import.meta.env.BASE_URL}images/${path}`
+
 export const profile = {
   firstName: 'Eulalio',
   lastName: 'Aguilera',
@@ -32,28 +36,28 @@ export const chapters = [
     to: '/projects',
     title: 'Projects',
     line: 'AI products, full-stack apps and automation.',
-    image: '/images/career/at-work-sm.jpg',
+    image: img('career/at-work-sm.jpg'),
     alt: 'Working on a laptop at a wooden desk',
   },
   {
     to: '/career',
     title: 'Career path',
     line: 'Inteva Products, Storecheck and Hospital Moscati.',
-    image: '/images/career/inteva-sm.jpg',
+    image: img('career/inteva-sm.jpg'),
     alt: 'Standing next to the Inteva Querétaro Technical Center sign',
   },
   {
     to: '/education',
     title: 'Education',
     line: 'Software Engineering at Universidad Autónoma de Querétaro.',
-    image: '/images/education/campus-sm.jpg',
+    image: img('education/campus-sm.jpg'),
     alt: 'University campus buildings under a cloudy sky',
   },
   {
     to: '/basketball',
     title: 'Off the clock',
     line: 'Basketball: national titles and state teams.',
-    image: '/images/basketball/champions-banner-sm.jpg',
+    image: img('basketball/champions-banner-sm.jpg'),
     alt: 'Team photo behind a champions banner after a tournament win',
   },
 ]
@@ -83,7 +87,7 @@ export const education = [
       '9.02 out of 10 overall grade average.',
       'Finishing my degree and close to graduating.',
     ],
-    photos: [{ src: '/images/education/campus.jpg', alt: 'University campus buildings under a cloudy sky' }],
+    photos: [{ src: img('education/campus.jpg'), alt: 'University campus buildings under a cloudy sky' }],
   },
   {
     school: 'Prepa Anáhuac Querétaro',
@@ -97,8 +101,8 @@ export const education = [
       'Played on the school basketball team on a sports scholarship.',
     ],
     photos: [
-      { src: '/images/education/graduation.jpg', alt: 'Graduation day in caps and gowns with classmates' },
-      { src: '/images/education/robotics.jpg', alt: 'Adjusting a robot at a robotics competition, wearing a team captain cap' },
+      { src: img('education/graduation.jpg'), alt: 'Graduation day in caps and gowns with classmates' },
+      { src: img('education/robotics.jpg'), alt: 'Adjusting a robot at a robotics competition, wearing a team captain cap' },
     ],
   },
 ]
@@ -119,9 +123,9 @@ export const courses = [
 ]
 
 export const educationGallery = [
-  { src: '/images/education/school-days.jpg', alt: 'In school uniform with family at a school event' },
-  { src: '/images/education/friends.jpg', alt: 'With friends on a night out' },
-  { src: '/images/education/competition-hall.jpg', alt: 'With a friend inside a large covered hall during an event' },
+  { src: img('education/school-days.jpg'), alt: 'In school uniform with family at a school event' },
+  { src: img('education/friends.jpg'), alt: 'With friends on a night out' },
+  { src: img('education/competition-hall.jpg'), alt: 'With a friend inside a large covered hall during an event' },
 ]
 
 export const career = [
@@ -134,7 +138,7 @@ export const career = [
       'I develop internal tools and software that automate and streamline workflows across the company, cutting manual processes.',
       'I build with the Microsoft Power Platform: Power Automate for workflows, Power Apps for internal applications and Power BI for reporting.',
     ],
-    photos: [{ src: '/images/career/inteva.jpg', alt: 'Standing next to the Inteva Querétaro Technical Center sign' }],
+    photos: [{ src: img('career/inteva.jpg'), alt: 'Standing next to the Inteva Querétaro Technical Center sign' }],
   },
   {
     company: 'Storecheck',
@@ -147,8 +151,8 @@ export const career = [
       'Found edge cases, corrected annotation errors and documented quality guidelines.',
     ],
     photos: [
-      { src: '/images/career/storecheck.jpg', alt: 'In front of the Storecheck sign at the office reception' },
-      { src: '/images/career/at-work.jpg', alt: 'Working on a laptop at a wooden desk in the office' },
+      { src: img('career/storecheck.jpg'), alt: 'In front of the Storecheck sign at the office reception' },
+      { src: img('career/at-work.jpg'), alt: 'Working on a laptop at a wooden desk in the office' },
     ],
   },
   {
@@ -160,7 +164,7 @@ export const career = [
       'Supported the emergency department as a helper.',
       'Worked in client service, attending to patients and visitors.',
     ],
-    photos: [{ src: '/images/career/service.jpg', alt: 'Portrait in a navy uniform polo shirt' }],
+    photos: [{ src: img('career/service.jpg'), alt: 'Portrait in a navy uniform polo shirt' }],
   },
 ]
 
@@ -205,10 +209,10 @@ export const honours = [
 ]
 
 export const basketballGallery = [
-  { src: '/images/basketball/champions-banner.jpg', alt: 'Team photo behind a champions banner after winning the tournament', wide: true },
-  { src: '/images/basketball/cup-with-coach.jpg', alt: 'Holding up a peace sign next to my coach, who is carrying the champions cup' },
-  { src: '/images/basketball/state-team.jpg', alt: 'Selfie with the whole state team in black Querétaro jerseys', wide: true },
-  { src: '/images/basketball/two-trophies.jpg', alt: 'As a kid, holding a trophy next to my coach' },
-  { src: '/images/basketball/first-court.jpg', alt: 'As a kid on an outdoor court with my coach, holding a trophy' },
-  { src: '/images/basketball/early-trophy.jpg', alt: 'Four young teammates in blue bibs sharing a trophy' },
+  { src: img('basketball/champions-banner.jpg'), alt: 'Team photo behind a champions banner after winning the tournament', wide: true },
+  { src: img('basketball/cup-with-coach.jpg'), alt: 'Holding up a peace sign next to my coach, who is carrying the champions cup' },
+  { src: img('basketball/state-team.jpg'), alt: 'Selfie with the whole state team in black Querétaro jerseys', wide: true },
+  { src: img('basketball/two-trophies.jpg'), alt: 'As a kid, holding a trophy next to my coach' },
+  { src: img('basketball/first-court.jpg'), alt: 'As a kid on an outdoor court with my coach, holding a trophy' },
+  { src: img('basketball/early-trophy.jpg'), alt: 'Four young teammates in blue bibs sharing a trophy' },
 ]

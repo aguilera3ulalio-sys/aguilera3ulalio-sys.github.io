@@ -29,16 +29,18 @@ Shared on every page: navigation, contact/social links, a "Download CV" button (
 - Vite + React + TypeScript
 - three.js through React Three Fiber; both scenes are generated in code, no model files
 - Lenis for smooth scrolling, tuned to stay quick (`lerp: 0.22`); entrances are CSS transitions triggered by IntersectionObserver
-- React Router for the pages (the host needs an SPA fallback to `index.html`)
+- React Router for the pages. The site lives under `/eulalio.com/`, so photo paths go through
+  the `img()` helper in `content.ts`, and the build copies `index.html` to `404.html` so deep links work
 - Plain CSS with custom properties for the design tokens (no UI kit)
 - Fonts: Anton (display), Space Grotesk (body), JetBrains Mono (labels and code), self-hosted through fontsource
-- Hosting: to be decided (Vercel or Cloudflare Pages), domain eulalio.com
+- Hosting: GitHub Pages at https://aguilera3ulalio-sys.github.io/eulalio.com/, served from the `gh-pages` branch
 
 ## Commands
 
 - `npm run dev` - local dev server
 - `npm run build` - type-check and build into `dist/`
 - `npm run preview` - serve the built site
+- `npm run deploy` - build and publish `dist/` to the `gh-pages` branch (the live site)
 
 ## Code map
 
@@ -90,7 +92,7 @@ dates, stats, awards); ask me instead.
 - [ ] More projects: front-end and automation work still to be added
 - [ ] Dates for the Hospital Moscati social service
 - [ ] "Download CV" button: the current CV PDF includes my phone number, decide before publishing it
-- [ ] Hosting and domain setup
+- [x] Hosting on GitHub Pages (no custom domain yet)
 
 ## Conventions
 
@@ -101,6 +103,8 @@ dates, stats, awards); ask me instead.
 
 ## Repository
 
-- GitHub: `aguilera3ulalio-sys/eulalio.com` (private while it is under construction).
+- GitHub: `aguilera3ulalio-sys/eulalio.com`, public because GitHub Pages requires it. Everything
+  committed is visible to anyone, so never commit my CV PDF, phone number or private files.
+- Pushing to `main` does not update the live site; run `npm run deploy` for that.
 - The project folder sits in iCloud Drive. `node_modules` and build output are git-ignored;
   if iCloud sync causes trouble with them, move the working copy outside iCloud.
