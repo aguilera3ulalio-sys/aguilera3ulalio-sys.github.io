@@ -43,7 +43,7 @@ function Layout() {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* The basename keeps my routes working when the site lives in a sub-folder. */}
+    {/* The basename keeps my routes working even if the site ever lives in a sub-folder. */}
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <Routes>
         <Route element={<Layout />}>

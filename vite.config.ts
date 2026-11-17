@@ -1,9 +1,9 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// GitHub Pages serves the site from /eulalio.com/ (the repo name), so the built
-// files need that prefix. In local development I keep everything at the root.
-export default defineConfig(({ command }) => ({
+// The repo is named aguilera3ulalio-sys.github.io, so GitHub Pages serves the
+// site from the root of that address and I do not need a base path.
+export default defineConfig({
   plugins: [react()],
-  base: command === 'build' ? '/eulalio.com/' : '/',
-}))
+  base: '/',
+})

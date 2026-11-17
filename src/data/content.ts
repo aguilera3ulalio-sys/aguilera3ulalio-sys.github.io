@@ -1,8 +1,9 @@
 // All the words and facts on the site live in this one file.
 // When my CV changes I only want to touch this file, never the page components.
 
-// The site is served from a sub-folder on GitHub Pages, so every photo path has
-// to start from the site's base address instead of from the domain root.
+// Every photo path starts from the site's base address. Today that is just "/",
+// but going through this helper means the site keeps working if I ever host it
+// in a sub-folder.
 const img = (path: string) => `${import.meta.env.BASE_URL}images/${path}`
 
 export const profile = {

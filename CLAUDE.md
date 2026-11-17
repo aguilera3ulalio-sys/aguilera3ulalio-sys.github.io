@@ -29,11 +29,11 @@ Shared on every page: navigation, contact/social links, a "Download CV" button (
 - Vite + React + TypeScript
 - three.js through React Three Fiber; both scenes are generated in code, no model files
 - Lenis for smooth scrolling, tuned to stay quick (`lerp: 0.22`); entrances are CSS transitions triggered by IntersectionObserver
-- React Router for the pages. The site lives under `/eulalio.com/`, so photo paths go through
-  the `img()` helper in `content.ts`, and the build copies `index.html` to `404.html` so deep links work
+- React Router for the pages. Photo paths go through the `img()` helper in `content.ts`, and the
+  build copies `index.html` to `404.html` so deep links work on GitHub Pages
 - Plain CSS with custom properties for the design tokens (no UI kit)
 - Fonts: Anton (display), Space Grotesk (body), JetBrains Mono (labels and code), self-hosted through fontsource
-- Hosting: GitHub Pages at https://aguilera3ulalio-sys.github.io/eulalio.com/, served from the `gh-pages` branch
+- Hosting: GitHub Pages at https://aguilera3ulalio-sys.github.io/, served from the `gh-pages` branch
 
 ## Commands
 
@@ -103,7 +103,8 @@ dates, stats, awards); ask me instead.
 
 ## Repository
 
-- GitHub: `aguilera3ulalio-sys/eulalio.com`, public because GitHub Pages requires it. Everything
+- GitHub: `aguilera3ulalio-sys/aguilera3ulalio-sys.github.io` (that exact name is what gives the
+  site its short address, do not rename it), public because GitHub Pages requires it. Everything
   committed is visible to anyone, so never commit my CV PDF, phone number or private files.
 - Pushing to `main` does not update the live site; run `npm run deploy` for that.
 - The project folder sits in iCloud Drive. `node_modules` and build output are git-ignored;
